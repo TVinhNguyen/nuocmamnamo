@@ -10,7 +10,7 @@ services:
     ports:
       - "80:80"
       - "443:443"
-    volumes:
+    # volumes:
       # Optional: Mount SSL certificates nếu có
       # - ./ssl:/etc/nginx/ssl:ro
     networks:
