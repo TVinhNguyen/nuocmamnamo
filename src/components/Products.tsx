@@ -9,6 +9,7 @@ export default function Products() {
       description: 'Nước mắm cao cấp nhất, trong veo, đạm đặc, hương thơm nồng nàn. Lý tưởng cho các món nhúng, chấm và nêm cao cấp.',
       price: '180.000đ',
       unit: 'chai 500ml',
+      image: 'https://images.unsplash.com/photo-1571690108533-29d4dd3bc56c?w=600&h=600&fit=crop',
       highlight: true,
     },
     {
@@ -17,6 +18,7 @@ export default function Products() {
       description: 'Công thức gia truyền, cân bằng hoàn hảo giữa vị mặn, ngọt và umami. Thích hợp cho mọi món ăn hàng ngày.',
       price: '120.000đ',
       unit: 'chai 500ml',
+      image: 'https://images.unsplash.com/photo-1596040033229-a0b13f219eff?w=600&h=600&fit=crop',
       highlight: false,
     },
     {
@@ -25,6 +27,7 @@ export default function Products() {
       description: 'Phiên bản gia đình, giá cả phải chăng nhưng vẫn giữ trọn hương vị biển cả và quy trình làm tự nhiên.',
       price: '80.000đ',
       unit: 'chai 500ml',
+      image: 'https://images.unsplash.com/photo-1563379091339-03b21ab4a4f8?w=600&h=600&fit=crop',
       highlight: false,
     },
   ];
@@ -54,7 +57,7 @@ export default function Products() {
           {products.map((product, index) => (
             <div
               key={index}
-              className={`relative bg-white rounded-lg overflow-hidden border-2 transition-all duration-300 hover:shadow-2xl hover:-translate-y-2 ${
+              className={`relative bg-white rounded-2xl overflow-hidden border-2 transition-all duration-300 hover:shadow-2xl hover:-translate-y-2 ${
                 product.highlight
                   ? 'border-[#C9A227] shadow-xl'
                   : 'border-[#E6D5B8]'
@@ -63,35 +66,44 @@ export default function Products() {
               data-aos-delay={index * 100}
             >
               {product.highlight && (
-                <div className="absolute top-4 right-4 bg-[#C9A227] text-white px-3 py-1 rounded-full text-xs font-bold flex items-center gap-1">
+                <div className="absolute top-4 right-4 bg-[#C9A227] text-white px-3 py-1.5 rounded-full text-xs font-bold flex items-center gap-1 z-10">
                   <Star className="w-3 h-3" fill="currentColor" />
                   CAO CẤP
                 </div>
               )}
 
-              <div className={`h-2 ${product.highlight ? 'bg-[#C9A227]' : 'bg-[#167E7E]'}`}></div>
-
-              <div className="p-8">
-                <div className="mb-4">
-                  <div className={`inline-flex items-center gap-2 px-3 py-1 rounded-full text-sm font-bold ${
+              {/* Product Image */}
+              <div className="relative h-64 overflow-hidden bg-gradient-to-br from-[#E6D5B8] to-[#F8F5EF]">
+                <img 
+                  src={product.image} 
+                  alt={product.name}
+                  className="w-full h-full object-cover transition-transform duration-500 hover:scale-110"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent"></div>
+                
+                {/* Grade Badge on Image */}
+                <div className="absolute bottom-4 left-4">
+                  <div className={`inline-flex items-center gap-2 px-4 py-2 rounded-full text-sm font-bold backdrop-blur-md ${
                     product.highlight
-                      ? 'bg-[#C9A227]/10 text-[#C9A227]'
-                      : 'bg-[#167E7E]/10 text-[#167E7E]'
+                      ? 'bg-[#C9A227]/90 text-white'
+                      : 'bg-white/90 text-[#167E7E]'
                   }`}>
                     <Sparkles className="w-4 h-4" />
                     {product.grade}
                   </div>
                 </div>
+              </div>
 
-                <h3 className="text-2xl font-bold text-[#0B3D59] mb-3">
+              <div className="p-6">
+                <h3 className="text-xl font-bold text-[#0B3D59] mb-3">
                   {product.name}
                 </h3>
 
-                <p className="text-[#0B3D59]/70 mb-6 leading-relaxed min-h-[120px]">
+                <p className="text-[#0B3D59]/70 mb-6 leading-relaxed text-sm min-h-[80px]">
                   {product.description}
                 </p>
 
-                <div className="border-t border-[#E6D5B8] pt-6 mb-6">
+                <div className="border-t border-[#E6D5B8] pt-4 mb-6">
                   <div className="flex items-baseline gap-2">
                     <span className="text-3xl font-bold text-[#B5651D]">
                       {product.price}
@@ -101,7 +113,7 @@ export default function Products() {
                 </div>
 
                 <motion.button
-                  className={`w-full py-3 rounded-sm font-medium transition-all duration-300 flex items-center justify-center gap-2 ${
+                  className={`w-full py-3 rounded-xl font-medium transition-all duration-300 flex items-center justify-center gap-2 ${
                     product.highlight
                       ? 'bg-[#B5651D] text-white hover:shadow-lg hover:ring-2 hover:ring-[#C9A227]'
                       : 'bg-[#0B3D59] text-white hover:bg-[#167E7E]'

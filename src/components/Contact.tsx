@@ -94,7 +94,7 @@ export default function Contact() {
                 <input
                   type="text"
                   id="name"
-                  className="w-full px-4 py-3 bg-white/10 border border-white/20 rounded-sm text-white placeholder-white/40 focus:outline-none focus:border-[#C9A227] focus:ring-1 focus:ring-[#C9A227] transition-all"
+                  className="w-full px-4 py-3 bg-white/10 border border-white/20 rounded-lg text-white placeholder-white/40 focus:outline-none focus:border-[#C9A227] focus:ring-1 focus:ring-[#C9A227] transition-all"
                   placeholder="Nguyễn Văn A"
                 />
               </div>
@@ -106,7 +106,7 @@ export default function Contact() {
                 <input
                   type="tel"
                   id="phone"
-                  className="w-full px-4 py-3 bg-white/10 border border-white/20 rounded-sm text-white placeholder-white/40 focus:outline-none focus:border-[#C9A227] focus:ring-1 focus:ring-[#C9A227] transition-all"
+                  className="w-full px-4 py-3 bg-white/10 border border-white/20 rounded-lg text-white placeholder-white/40 focus:outline-none focus:border-[#C9A227] focus:ring-1 focus:ring-[#C9A227] transition-all"
                   placeholder="0901 234 567"
                 />
               </div>
@@ -118,7 +118,7 @@ export default function Contact() {
                 <input
                   type="email"
                   id="email"
-                  className="w-full px-4 py-3 bg-white/10 border border-white/20 rounded-sm text-white placeholder-white/40 focus:outline-none focus:border-[#C9A227] focus:ring-1 focus:ring-[#C9A227] transition-all"
+                  className="w-full px-4 py-3 bg-white/10 border border-white/20 rounded-lg text-white placeholder-white/40 focus:outline-none focus:border-[#C9A227] focus:ring-1 focus:ring-[#C9A227] transition-all"
                   placeholder="email@example.com"
                 />
               </div>
@@ -130,14 +130,14 @@ export default function Contact() {
                 <textarea
                   id="message"
                   rows={4}
-                  className="w-full px-4 py-3 bg-white/10 border border-white/20 rounded-sm text-white placeholder-white/40 focus:outline-none focus:border-[#C9A227] focus:ring-1 focus:ring-[#C9A227] transition-all resize-none"
+                  className="w-full px-4 py-3 bg-white/10 border border-white/20 rounded-lg text-white placeholder-white/40 focus:outline-none focus:border-[#C9A227] focus:ring-1 focus:ring-[#C9A227] transition-all resize-none"
                   placeholder="Cho chúng tôi biết bạn cần gì..."
                 ></textarea>
               </div>
 
               <button
                 type="submit"
-                className="w-full px-6 py-4 bg-[#B5651D] text-white rounded-sm hover:shadow-2xl hover:ring-2 hover:ring-[#C9A227] transition-all duration-300 font-medium text-lg flex items-center justify-center gap-2"
+                className="w-full px-6 py-4 bg-[#B5651D] text-white rounded-xl hover:shadow-2xl hover:ring-2 hover:ring-[#C9A227] transition-all duration-300 font-medium text-lg flex items-center justify-center gap-2"
               >
                 <Send className="w-5 h-5" />
                 Gửi Tin Nhắn

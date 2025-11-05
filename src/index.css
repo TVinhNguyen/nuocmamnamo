@@ -35,6 +35,25 @@
     @apply opacity-100;
   }
 
+  /* Testimonials Swiper Custom */
+  .testimonials-swiper .swiper-pagination-bullet {
+    @apply bg-[#0B3D59] opacity-30;
+    width: 10px;
+    height: 10px;
+  }
+  
+  .testimonials-swiper .swiper-pagination-bullet-active {
+    @apply opacity-100 bg-[#167E7E];
+    width: 12px;
+    height: 12px;
+  }
+
+  /* Đảm bảo các slide có chiều cao đồng đều */
+  .testimonials-swiper .swiper-slide {
+    height: auto;
+    display: flex;
+  }
+
   /* Glass morphism effect */
   .glass {
     background: rgba(255, 255, 255, 0.1);

@@ -1,4 +1,8 @@
 import { Award, Shield, Leaf, Star } from 'lucide-react';
+import { Swiper, SwiperSlide } from 'swiper/react';
+import { Autoplay, Pagination } from 'swiper/modules';
+import 'swiper/css';
+import 'swiper/css/pagination';
 
 export default function Certifications() {
   const certifications = [
@@ -37,16 +41,61 @@ export default function Certifications() {
       quote: 'Hương vị đậm đà, trong trẻo như chính biển Nam Ô. Gia đình tôi đã dùng nước mắm này hơn 20 năm và chưa bao giờ muốn đổi.',
       author: 'Chị Lan Anh',
       location: 'Hà Nội',
+      rating: 5,
     },
     {
       quote: 'Nhà hàng chúng tôi chỉ tin dùng nước mắm Nam Ô. Khách hàng luôn khen ngợi vị ngọt tự nhiên và mùi thơm đặc trưng.',
       author: 'Anh Minh Tuấn',
       location: 'Chủ Nhà Hàng Hải Sản',
+      rating: 5,
     },
     {
       quote: 'Là người Đà Nẵng xa quê, mỗi lần được ăn món chấm nước mắm Nam Ô là tôi lại nhớ về biển, về làng.',
       author: 'Chị Phương',
       location: 'Sài Gòn',
+      rating: 5,
+    },
+    {
+      quote: 'Chất lượng tuyệt vời! Nước mắm có màu hổ phách đẹp, không tanh, vị umami rất chuẩn. Đã giới thiệu cho cả bạn bè và người thân.',
+      author: 'Anh Đức Thịnh',
+      location: 'Đà Nẵng',
+      rating: 5,
+    },
+    {
+      quote: 'Mua về làm quà biếu cho gia đình ở nước ngoài, họ rất thích! Nói rằng đây là nước mắm ngon nhất họ từng dùng.',
+      author: 'Chị Mai Hương',
+      location: 'USA',
+      rating: 5,
+    },
+    {
+      quote: 'Shop bán hàng uy tín, giao hàng nhanh. Nước mắm đóng gói kỹ càng, chất lượng đúng như mô tả. Sẽ ủng hộ lâu dài!',
+      author: 'Anh Quốc Huy',
+      location: 'Hải Phòng',
+      rating: 5,
+    },
+    {
+      quote: 'Là đầu bếp chuyên nghiệp, tôi đã thử rất nhiều loại nước mắm. Nam Ô vẫn là số 1 trong lòng tôi về độ trong và hương vị.',
+      author: 'Chef Hoàng Anh',
+      location: 'Nhà Hàng 5 Sao',
+      rating: 5,
+    },
+    {
+      quote: 'Món canh chua với nước mắm Nam Ô ngon xuất sắc! Vị ngọt tự nhiên từ cá cơm, không cần thêm gia vị gì nữa.',
+      author: 'Chị Thủy',
+      location: 'Cần Thơ',
+      rating: 5,
+    },
+    {
+      quote: 'Tôi là người khó tính về đồ ăn, nhưng nước mắm này thực sự chinh phục được vị giác của tôi. Đáng đồng tiền bát gạo!',
+      author: 'Anh Tuấn Anh',
+      location: 'Huế',
+      rating: 5,
+    },
+    {
+      quote: 'Mua cho ba mẹ già dùng, các cụ rất ưng ý. Nói rằng giống hệt nước mắm tự làm ngày xưa, hương vị thời bao cấp.',
+      author: 'Chị Ngọc Lan',
+      location: 'Thanh Hóa',
+      rating: 5,
     },
   ];
 
@@ -85,34 +134,57 @@ export default function Certifications() {
             Khách Hàng Nói Gì Về Chúng Tôi
           </h3>
 
-          <div className="grid md:grid-cols-3 gap-8">
+          <Swiper
+            modules={[Autoplay, Pagination]}
+            spaceBetween={30}
+            slidesPerView={1}
+            pagination={{ 
+              clickable: true,
+              dynamicBullets: true,
+            }}
+            autoplay={{
+              delay: 4000,
+              disableOnInteraction: false,
+              pauseOnMouseEnter: true,
+            }}
+            breakpoints={{
+              640: {
+                slidesPerView: 2,
+                spaceBetween: 20,
+              },
+              1024: {
+                slidesPerView: 3,
+                spaceBetween: 30,
+              },
+            }}
+            loop={true}
+            className="testimonials-swiper pb-12"
+            style={{ paddingBottom: '50px' }}
+          >
             {testimonials.map((testimonial, index) => (
-              <div
-                key={index}
-                className="bg-white p-6 rounded-lg border-2 border-[#0B3D59]/10 hover:border-[#167E7E] transition-all duration-300"
-                data-aos="fade-up"
-                data-aos-delay={300 + (index * 100)}
-              >
-                <div className="flex gap-1 mb-4">
-                  {[...Array(5)].map((_, i) => (
-                    <Star
-                      key={i}
-                      className="w-5 h-5 text-[#C9A227] fill-current"
-                    />
-                  ))}
-                </div>
+              <SwiperSlide key={index} style={{ height: 'auto' }}>
+                <div className="bg-white p-6 rounded-lg border-2 border-[#0B3D59]/10 hover:border-[#167E7E] transition-all duration-300 h-full flex flex-col min-h-[280px]">
+                  <div className="flex gap-1 mb-4">
+                    {[...Array(testimonial.rating)].map((_, i) => (
+                      <Star
+                        key={i}
+                        className="w-5 h-5 text-[#C9A227] fill-current"
+                      />
+                    ))}
+                  </div>
 
-                <p className="text-[#0B3D59] mb-6 leading-relaxed italic">
-                  "{testimonial.quote}"
-                </p>
+                  <p className="text-[#0B3D59] mb-6 leading-relaxed italic flex-grow">
+                    "{testimonial.quote}"
+                  </p>
 
-                <div className="border-t border-[#E6D5B8] pt-4">
-                  <p className="font-bold text-[#0B3D59]">{testimonial.author}</p>
-                  <p className="text-sm text-[#0B3D59]/60">{testimonial.location}</p>
+                  <div className="border-t border-[#E6D5B8] pt-4 mt-auto">
+                    <p className="font-bold text-[#0B3D59]">{testimonial.author}</p>
+                    <p className="text-sm text-[#0B3D59]/60">{testimonial.location}</p>
+                  </div>
                 </div>
-              </div>
+              </SwiperSlide>
             ))}
-          </div>
+          </Swiper>
         </div>
 
         <div className="mt-16 bg-gradient-to-r from-[#0B3D59] to-[#167E7E] rounded-lg p-8 md:p-12 text-center text-white" data-aos="zoom-in" data-aos-delay="400">

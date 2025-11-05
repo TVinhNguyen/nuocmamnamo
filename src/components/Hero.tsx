@@ -55,13 +55,13 @@ export default function Hero() {
         <div className="flex flex-col sm:flex-row items-center justify-center gap-4 mb-16" data-aos="fade-up" data-aos-delay="300">
           <a
             href="#products"
-            className="px-8 py-4 bg-[#B5651D] text-white rounded-sm hover:shadow-2xl hover:ring-2 hover:ring-[#C9A227] transition-all duration-300 text-lg font-medium"
+            className="px-8 py-4 bg-[#B5651D] text-white rounded-xl hover:shadow-2xl hover:ring-2 hover:ring-[#C9A227] transition-all duration-300 text-lg font-medium"
           >
             Khám Phá Sản Phẩm
           </a>
           <a
             href="#heritage"
-            className="px-8 py-4 bg-transparent border-2 border-[#0B3D59] text-[#0B3D59] rounded-sm hover:bg-[#0B3D59] hover:text-white transition-all duration-300 text-lg font-medium"
+            className="px-8 py-4 bg-transparent border-2 border-[#0B3D59] text-[#0B3D59] rounded-xl hover:bg-[#0B3D59] hover:text-white transition-all duration-300 text-lg font-medium"
           >
             Câu Chuyện Di Sản
           </a>
