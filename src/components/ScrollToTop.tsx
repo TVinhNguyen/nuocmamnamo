@@ -1,9 +1,14 @@
 import { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { ArrowUp } from 'lucide-react';
+import { useLocation } from 'react-router-dom';
 
 export default function ScrollToTop() {
   const [isVisible, setIsVisible] = useState(false);
+  const location = useLocation();
+
+  // Không hiển thị ở trang shop
+  const shouldShow = location.pathname !== '/shop';
 
   useEffect(() => {
     const toggleVisibility = () => {
@@ -27,7 +32,7 @@ export default function ScrollToTop() {
 
   return (
     <AnimatePresence>
-      {isVisible && (
+      {isVisible && shouldShow && (
         <motion.button
           onClick={scrollToTop}
           className="fixed bottom-8 right-8 z-50 p-4 bg-gradient-to-br from-[#B5651D] to-[#C9A227] text-white rounded-full shadow-2xl hover:shadow-3xl transition-all duration-300 group"

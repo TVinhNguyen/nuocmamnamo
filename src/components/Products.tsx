@@ -1,33 +1,34 @@
 import { Sparkles, Star, ShoppingCart } from 'lucide-react';
 import { motion } from 'framer-motion';
+import { Link } from 'react-router-dom';
 
 export default function Products() {
   const products = [
     {
-      name: 'Nước Mắm Cá Cơm Đặc Biệt',
-      grade: '40°N',
-      description: 'Nước mắm cao cấp nhất, trong veo, đạm đặc, hương thơm nồng nàn. Lý tưởng cho các món nhúng, chấm và nêm cao cấp.',
-      price: '180.000đ',
-      unit: 'chai 500ml',
-      image: 'https://images.unsplash.com/photo-1571690108533-29d4dd3bc56c?w=600&h=600&fit=crop',
+      name: 'Tép Biển Nam Ô',
+      grade: 'Đặc Sản',
+      description: 'Tép biển Nam Ô khô, thơm ngon tự nhiên. Phơi khô tự nhiên dưới nắng gió biển, giữ trọn vị ngọt của tép.',
+      price: '95.000đ',
+      unit: 'hộp 250g',
+      image: '/src/imgs/sp1/sp1_1.jpg',
       highlight: true,
     },
     {
-      name: 'Nước Mắm Truyền Thống',
-      grade: '30°N',
-      description: 'Công thức gia truyền, cân bằng hoàn hảo giữa vị mặn, ngọt và umami. Thích hợp cho mọi món ăn hàng ngày.',
-      price: '120.000đ',
+      name: 'Nước Mắm Ủ 2 Năm',
+      grade: '40°N',
+      description: 'Nước mắm cao cấp ủ 24 tháng trong chum gốm. Độ đạm 40°N, hương thơm nồng nàn, lý tưởng cho món chấm cao cấp.',
+      price: '180.000đ',
       unit: 'chai 500ml',
-      image: 'https://images.unsplash.com/photo-1596040033229-a0b13f219eff?w=600&h=600&fit=crop',
+      image: '/src/imgs/sp2/sp2_1.png',
       highlight: false,
     },
     {
-      name: 'Nước Mắm Nhà Làm',
-      grade: '25°N',
-      description: 'Phiên bản gia đình, giá cả phải chăng nhưng vẫn giữ trọn hương vị biển cả và quy trình làm tự nhiên.',
-      price: '80.000đ',
+      name: 'Nước Mắm Ủ 1 Năm',
+      grade: '30°N',
+      description: 'Nước mắm truyền thống ủ 12 tháng. Cân bằng hoàn hảo giữa vị mặn, ngọt và umami, phù hợp cho mọi món ăn.',
+      price: '120.000đ',
       unit: 'chai 500ml',
-      image: 'https://images.unsplash.com/photo-1563379091339-03b21ab4a4f8?w=600&h=600&fit=crop',
+      image: '/src/imgs/sp3/sp3_1.png',
       highlight: false,
     },
   ];
@@ -112,25 +113,29 @@ export default function Products() {
                   </div>
                 </div>
 
-                <motion.button
-                  className={`w-full py-3 rounded-xl font-medium transition-all duration-300 flex items-center justify-center gap-2 ${
-                    product.highlight
-                      ? 'bg-[#B5651D] text-white hover:shadow-lg hover:ring-2 hover:ring-[#C9A227]'
-                      : 'bg-[#0B3D59] text-white hover:bg-[#167E7E]'
-                  }`}
-                  whileHover={{ scale: 1.02 }}
-                  whileTap={{ scale: 0.98 }}
-                >
-                  <ShoppingCart className="w-5 h-5" />
-                  Đặt Hàng Ngay
-                </motion.button>
+                <Link to="/shop">
+                  <motion.button
+                    className={`w-full py-3 rounded-xl font-medium transition-all duration-300 flex items-center justify-center gap-2 ${
+                      product.highlight
+                        ? 'bg-[#B5651D] text-white hover:shadow-lg hover:ring-2 hover:ring-[#C9A227]'
+                        : 'bg-[#0B3D59] text-white hover:bg-[#167E7E]'
+                    }`}
+                    whileHover={{ scale: 1.02 }}
+                    whileTap={{ scale: 0.98 }}
+                  >
+                    <ShoppingCart className="w-5 h-5" />
+                    Đặt Hàng Ngay
+                  </motion.button>
+                </Link>
               </div>
             </div>
           ))}
         </div>
 
         <div className="mt-16 text-center">
-          <div className="inline-block bg-[#E6D5B8] rounded-lg p-8 max-w-2xl" data-aos="zoom-in" data-aos-delay="400">
+         
+          
+          <div className="inline-block bg-[#E6D5B8] rounded-lg p-8 max-w-2xl" data-aos="zoom-in" data-aos-delay="200">
             <p className="text-[#0B3D59] leading-relaxed">
               <span className="font-bold text-[#167E7E]">Giao hàng toàn quốc</span> —
               Đặt từ 5 chai trở lên được tặng thêm mắm ruốc đặc sản.
