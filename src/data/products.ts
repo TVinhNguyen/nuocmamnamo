@@ -11,7 +11,7 @@ export const PRODUCTS = [
     rating: 4.9,
     reviews: 234,
     inStock: true,
-    images: ['/src/imgs/sp1/sp1_1.jpg', '/src/imgs/sp1/sp1_2.png'],
+    images: ['/imgs/sp1/sp1_1.jpg', '/imgs/sp1/sp1_2.png'],
     specifications: {
       volume: '250g',
       protein: 'Cao',
@@ -37,7 +37,7 @@ export const PRODUCTS = [
     rating: 5,
     reviews: 342,
     inStock: true,
-    images: ['/src/imgs/sp2/sp2_1.png'],
+    images: ['/imgs/sp2/sp2_1.png'],
     specifications: {
       volume: '500ml',
       protein: '40°N',
@@ -63,7 +63,7 @@ export const PRODUCTS = [
     rating: 4.8,
     reviews: 587,
     inStock: true,
-    images: ['/src/imgs/sp3/sp3_1.png'],
+    images: ['/imgs/sp3/sp3_1.png'],
     specifications: {
       volume: '500ml',
       protein: '30°N',

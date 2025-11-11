@@ -38,7 +38,7 @@ export default function Navigation() {
       <div className="max-w-7xl mx-auto px-6 lg:px-8">
         <div className="flex items-center justify-between h-20">
           <Link to="/" className="flex items-center gap-3">
-            <img src="/src/imgs/logo.png" alt="Hương Làng Cổ" className="w-12 h-12 object-contain" />
+            <img src="/imgs/logo.png" alt="Hương Làng Cổ" className="w-12 h-12 object-contain" />
             <div>
               <h1 className="text-xl font-bold text-[#0B3D59] tracking-tight">Hương Làng Cổ</h1>
               <p className="text-xs text-[#167E7E] tracking-widest">NƯỚC MẮM NAM Ô</p>

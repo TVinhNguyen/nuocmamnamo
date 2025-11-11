@@ -10,7 +10,7 @@ export default function Products() {
       description: 'Tép biển Nam Ô khô, thơm ngon tự nhiên. Phơi khô tự nhiên dưới nắng gió biển, giữ trọn vị ngọt của tép.',
       price: '95.000đ',
       unit: 'hộp 250g',
-      image: '/src/imgs/sp1/sp1_1.jpg',
+      image: '/imgs/sp1/sp1_1.jpg',
       highlight: true,
     },
     {
@@ -19,7 +19,7 @@ export default function Products() {
       description: 'Nước mắm cao cấp ủ 24 tháng trong chum gốm. Độ đạm 40°N, hương thơm nồng nàn, lý tưởng cho món chấm cao cấp.',
       price: '180.000đ',
       unit: 'chai 500ml',
-      image: '/src/imgs/sp2/sp2_1.png',
+      image: '/imgs/sp2/sp2_1.png',
       highlight: false,
     },
     {
@@ -28,7 +28,7 @@ export default function Products() {
       description: 'Nước mắm truyền thống ủ 12 tháng. Cân bằng hoàn hảo giữa vị mặn, ngọt và umami, phù hợp cho mọi món ăn.',
       price: '120.000đ',
       unit: 'chai 500ml',
-      image: '/src/imgs/sp3/sp3_1.png',
+      image: '/imgs/sp3/sp3_1.png',
       highlight: false,
     },
   ];
