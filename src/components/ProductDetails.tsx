@@ -45,6 +45,7 @@ export default function ProductDetails({ product, onClose }: ProductDetailsProps
         name: product.name,
         grade: product.grade,
         price: product.price,
+        image: product.images && product.images.length > 0 ? product.images[0] : undefined,
       });
     }
     setShowSuccessToast(true);

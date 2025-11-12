@@ -63,7 +63,7 @@ export default function Hero() {
             href="#heritage"
             className="px-8 py-4 bg-transparent border-2 border-[#0B3D59] text-[#0B3D59] rounded-xl hover:bg-[#0B3D59] hover:text-white transition-all duration-300 text-lg font-medium"
           >
-            Câu Chuyện Di Sản
+            Câu Chuyện Thương Hiệu
           </a>
         </div>
 

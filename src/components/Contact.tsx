@@ -1,6 +1,18 @@
+import { useState } from 'react';
 import { Mail, Phone, MapPin, Facebook, Instagram, Send } from 'lucide-react';
+import { motion, AnimatePresence } from 'framer-motion';
 
 export default function Contact() {
+  const [showSuccess, setShowSuccess] = useState(false);
+
+  const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
+    setShowSuccess(true);
+    setTimeout(() => {
+      setShowSuccess(false);
+      (e.target as HTMLFormElement).reset();
+    }, 3000);
+  };
   return (
     <section id="contact" className="py-24 bg-[#0B3D59] relative overflow-hidden">
       <div className="absolute inset-0 opacity-5">
@@ -86,7 +98,7 @@ export default function Contact() {
           <div className="bg-white/5 backdrop-blur-sm p-8 rounded-lg border border-[#167E7E]/30" data-aos="fade-left" data-aos-delay="200">
             <h3 className="text-2xl font-bold text-white mb-6">Gửi Tin Nhắn</h3>
 
-            <form className="space-y-5">
+            <form onSubmit={handleSubmit} className="space-y-5">
               <div>
                 <label htmlFor="name" className="block text-white/80 mb-2 text-sm">
                   Họ và Tên
@@ -155,6 +167,34 @@ export default function Contact() {
           </p>
         </div>
       </div>
+
+      {/* Contact Success Modal */}
+      <AnimatePresence>
+        {showSuccess && (
+          <motion.div
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            className="fixed inset-0 bg-black/50 z-50 flex items-center justify-center p-4"
+          >
+            <motion.div
+              initial={{ scale: 0.9, opacity: 0 }}
+              animate={{ scale: 1, opacity: 1 }}
+              exit={{ scale: 0.9, opacity: 0 }}
+              className="bg-white rounded-2xl p-8 max-w-md w-full text-center shadow-2xl"
+            >
+              <div className="w-20 h-20 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-6">
+                <svg className="w-10 h-10 text-green-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
+                </svg>
+              </div>
+              <h3 className="text-2xl font-bold text-[#0B3D59] mb-3">Cảm ơn bạn đã liên hệ!</h3>
+              <p className="text-[#0B3D59]/70 mb-2">Tin nhắn của bạn đã được gửi thành công</p>
+              <p className="text-sm text-[#0B3D59]/60">Chúng tôi sẽ phản hồi bạn sớm nhất có thể</p>
+            </motion.div>
+          </motion.div>
+        )}
+      </AnimatePresence>
     </section>
   );
 }

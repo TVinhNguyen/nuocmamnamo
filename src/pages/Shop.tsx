@@ -5,7 +5,6 @@ import ProductDetails from '../components/ProductDetails';
 import { useCart } from '../context/CartContext';
 import { PRODUCTS } from '../data/products';
 import { motion, AnimatePresence } from 'framer-motion';
-import { Link } from 'react-router-dom';
 
 export default function Shop() {
   const [selectedProduct, setSelectedProduct] = useState<typeof PRODUCTS[0] | null>(null);
@@ -14,7 +13,8 @@ export default function Shop() {
   const [sortBy, setSortBy] = useState<'popular' | 'price-low' | 'price-high' | 'rating'>('popular');
   const [showSortMenu, setShowSortMenu] = useState(false);
   const [showCart, setShowCart] = useState(false);
-  const { items, removeItem, updateQuantity, total } = useCart();
+  const [showCheckoutSuccess, setShowCheckoutSuccess] = useState(false);
+  const { items, removeItem, updateQuantity, total, clearCart } = useCart();
 
   const categories = [
     { id: 'all', name: 'Tất Cả' },
@@ -284,9 +284,17 @@ export default function Shop() {
               <div className="flex-1 overflow-y-auto p-6 space-y-4">
                 {items.map((item) => (
                   <div key={item.id} className="flex gap-4 p-4 bg-[#F8F5EF] rounded-lg">
-                    <div className="w-20 h-20 bg-gradient-to-br from-[#E6D5B8] to-[#F8F5EF] rounded-lg flex items-center justify-center flex-shrink-0">
-                      <span className="text-xl font-bold text-[#167E7E]">{item.grade}</span>
-                    </div>
+                    {item.image ? (
+                      <img
+                        src={item.image}
+                        alt={item.name}
+                        className="w-20 h-20 object-cover rounded-lg flex-shrink-0"
+                      />
+                    ) : (
+                      <div className="w-20 h-20 bg-gradient-to-br from-[#E6D5B8] to-[#F8F5EF] rounded-lg flex items-center justify-center flex-shrink-0">
+                        <span className="text-xl font-bold text-[#167E7E]">{item.grade}</span>
+                      </div>
+                    )}
                     <div className="flex-1">
                       <h3 className="font-bold text-[#0B3D59] mb-1">{item.name}</h3>
                       <p className="text-sm text-[#B5651D] font-semibold mb-2">{item.price.toLocaleString('vi-VN')}đ</p>
@@ -321,13 +329,50 @@ export default function Shop() {
                   <span className="text-lg font-semibold text-[#0B3D59]">Tổng cộng:</span>
                   <span className="text-2xl font-bold text-[#B5651D]">{total.toLocaleString('vi-VN')}đ</span>
                 </div>
-                <Link
-                  to="/checkout"
+                <button
+                  onClick={() => {
+                    setShowCheckoutSuccess(true);
+                    setShowCart(false);
+                    setTimeout(() => {
+                      clearCart();
+                      setShowCheckoutSuccess(false);
+                    }, 3000);
+                  }}
                   className="block w-full py-4 bg-[#B5651D] text-white text-center rounded-lg font-semibold hover:bg-[#167E7E] transition-colors"
                 >
                   Thanh Toán
-                </Link>
+                </button>
               </div>
+            </motion.div>
+          </>
+        )}
+      </AnimatePresence>
+
+      {/* Checkout Success Modal */}
+      <AnimatePresence>
+        {showCheckoutSuccess && (
+          <>
+            <motion.div
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              exit={{ opacity: 0 }}
+              className="fixed inset-0 bg-black/50 z-50 flex items-center justify-center p-4"
+            >
+              <motion.div
+                initial={{ scale: 0.9, opacity: 0 }}
+                animate={{ scale: 1, opacity: 1 }}
+                exit={{ scale: 0.9, opacity: 0 }}
+                className="bg-white rounded-2xl p-8 max-w-md w-full text-center shadow-2xl"
+              >
+                <div className="w-20 h-20 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-6">
+                  <svg className="w-10 h-10 text-green-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
+                  </svg>
+                </div>
+                <h3 className="text-2xl font-bold text-[#0B3D59] mb-3">Cảm ơn bạn đã đặt hàng!</h3>
+                <p className="text-[#0B3D59]/70 mb-2">Đơn hàng của bạn đã được xác nhận</p>
+                <p className="text-sm text-[#0B3D59]/60">Chúng tôi sẽ liên hệ với bạn sớm nhất</p>
+              </motion.div>
             </motion.div>
           </>
         )}
